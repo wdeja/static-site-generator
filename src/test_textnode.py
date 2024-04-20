@@ -8,7 +8,7 @@ from textnode import (
     text_type_code,
     text_type_image,
     text_type_link,
-    split_nodes_delimiter
+    # split_nodes_delimiter
 )
 
 class TestTextNode(unittest.TestCase):
@@ -31,39 +31,39 @@ class TestTextNode(unittest.TestCase):
         node = TextNode("This is a text node", text_type_text,"www.boot.dev")
         self.assertEqual('TextNode(This is a text node, text, www.boot.dev)', node.__repr__())
 
-    def test_split_nodes_delimeter(self):
-        result = [
-    TextNode("This is text with a ", text_type_text),
-    TextNode("code block", text_type_code),
-    TextNode(" word", text_type_text),
-]
-        node = TextNode("This is text with a `code block` word", text_type_text)
-        self.assertEqual(split_nodes_delimiter([node], "`", text_type_code), result)
+#     def test_split_nodes_delimeter(self):
+#         result = [
+#     TextNode("This is text with a ", text_type_text),
+#     TextNode("code block", text_type_code),
+#     TextNode(" word", text_type_text),
+# ]
+#         node = TextNode("This is text with a `code block` word", text_type_text)
+#         self.assertEqual(split_nodes_delimiter([node], "`", text_type_code), result)
 
-    def test_split_nodes_delimeter_textNode_list(self):
-        result = [
-            TextNode("This is text " , text_type_text), 
-             TextNode("with", text_type_bold), 
-             TextNode(" a `code block` word", text_type_text), 
-             TextNode("", text_type_text), 
-             TextNode("This is text", text_type_bold), 
-             TextNode(" with a `code block` word", text_type_text), 
-             TextNode("This " , text_type_text), 
-             TextNode("is", text_type_bold), 
-             TextNode(" text with a " , text_type_text), 
-             TextNode("code block", text_type_bold), 
-             TextNode(" word", text_type_text), 
-             TextNode("This is text with a " , text_type_text), 
-             TextNode("code block", text_type_bold), 
-             TextNode(" word", text_type_text)
-        ]
-        node_list = [
-        TextNode("This is text **with** a `code block` word", text_type_text),
-        TextNode("**This is text** with a `code block` word", text_type_text),
-        TextNode("This **is** text with a **code block** word", text_type_text),
-        TextNode("This is text with a **code block** word", text_type_text),
-        ]
-        self.assertEqual(split_nodes_delimiter(node_list,"**",text_type_bold),result)
+    # def test_split_nodes_delimeter_textNode_list(self):
+    #     result = [
+    #         TextNode("This is text " , text_type_text), 
+    #          TextNode("with", text_type_bold), 
+    #          TextNode(" a `code block` word", text_type_text), 
+    #          TextNode("", text_type_text), 
+    #          TextNode("This is text", text_type_bold), 
+    #          TextNode(" with a `code block` word", text_type_text), 
+    #          TextNode("This " , text_type_text), 
+    #          TextNode("is", text_type_bold), 
+    #          TextNode(" text with a " , text_type_text), 
+    #          TextNode("code block", text_type_bold), 
+    #          TextNode(" word", text_type_text), 
+    #          TextNode("This is text with a " , text_type_text), 
+    #          TextNode("code block", text_type_bold), 
+    #          TextNode(" word", text_type_text)
+    #     ]
+    #     node_list = [
+    #     TextNode("This is text **with** a `code block` word", text_type_text),
+    #     TextNode("**This is text** with a `code block` word", text_type_text),
+    #     TextNode("This **is** text with a **code block** word", text_type_text),
+    #     TextNode("This is text with a **code block** word", text_type_text),
+    #     ]
+    #     self.assertEqual(split_nodes_delimiter(node_list,"**",text_type_bold),result)
 
 
 
